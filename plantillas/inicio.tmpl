@@ -1,24 +1,50 @@
 {{ define "inicio" }}
 {{template "cabecera"}}
-<a name="" id="" class="btn btn-primary" href="/registrar" role="button">REGISTRAR</a>
+<a name="" id="" class="btn btn-primary" href="/registrar" role="button"
+  >Nuevo Empleado</a
+>
+<br />
+<br />
+<h2>Empleados Registrados</h2>
 <table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>NOMBRE</th>
-            <th>CORREO</th>
-            <th>ACCIONES</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>GUSTAVO</td>
-            <td>GUSTAVO@GMAIL.COM</td>
-            <td>EDITAR | BORRAR</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NOMBRE</th>
+      <th>CORREO</th>
+      <th>ACCIONES</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{range.}}
+    <tr>
+      <td>{{.Id}}</td>
+      <td>{{.Nombre}}</td>
+      <td>{{.Correo}}</td>
+      <td>
+        <a
+          name=""
+          id=""
+          class="btn btn-warning"
+          href="/editar?id={{.Id}}"
+          role="button"
+          >Editar</a
+        >|
+        <a
+          name=""
+          id=""
+          class="btn btn-danger"
+          href="/eliminar?id={{.Id}}"
+          role="button"
+          >Borrar</a
+        >
+      </td>
+    </tr>
+    {{
+      end
+    }}
+  </tbody>
 </table>
 
-{{template "pie"}}      
- {{ end }}
+{{template "pie"}}
+{{ end }}

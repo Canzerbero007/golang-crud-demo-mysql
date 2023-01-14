@@ -1,10 +1,21 @@
-{{ define "registrar"}}
+{{ define "editar"}}
 {{template "cabecera"}}
 <div class="card">
-  <div class="card-header">Registro de Empleado</div>
+  <div class="card-header">Editar Empleado</div>
 
   <div class="card-body">
-    <form action="/insertar" method="post">
+    <form action="/actualizar" method="post">
+      <div class="form-group">
+        <input
+          type="hidden"
+          class="form-control"
+          name="id"
+          id="id"
+          aria-describedby="helpId"
+          placeholder="ID"
+          value="{{.Id}}"
+        />
+      </div>
       <div class="form-group">
         <label for="">NOMBRE:</label>
         <input
@@ -14,6 +25,7 @@
           id="nombre"
           aria-describedby="helpId"
           placeholder="NOMBRE"
+          value="{{.Nombre}}"
         />
         <small id="helpId" class="form-text text-muted"
           >Ingrese su nombre</small
@@ -27,14 +39,17 @@
           name="correo"
           id="correo"
           aria-describedby="emailHelpId"
-          placeholder=""
+          placeholder="CORREO"
+          value="{{.Correo}}"
         />
         <small id="emailHelpId" class="form-text text-muted"
-          >Ingrese su correo</small
+          >Ingrese su correo electronico</small
         >
       </div>
       <br />
-      <button type="submit" class="btn btn-success">Registrar Empleado</button>
+      <button type="submit" class="btn btn-success">
+        Actualizar Registro de Empleado
+      </button>
       <a name="" id="" class="btn btn-primary" href="/" role="button"
         >Cancelar</a
       >
